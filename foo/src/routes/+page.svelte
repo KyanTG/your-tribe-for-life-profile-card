@@ -5,21 +5,24 @@
 
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<section class="mycard">
+    <h1>{ members?.name }</h1>
+    <img src="{ members?.avatar}" alt="kyan gijtenbeek">
+    <p>{ members?.bio }</p>
+    <a href="{ members?.website }">dwd</a>
+</section>
 
-{#each members as member}
-    <a href="/{member.id}">{member.name}</a><br>
-    <img src="{member.avatar}"><br>
-{/each}
 
 <style>
-
-    img {
-        border-radius: 50px;
-        width: 200px;
-        height: 200px;
+    .mycard {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        /* width: 60em;
+        height: 30em;
+        border-radius: 20px 0px 20px 0px;
+        background-color: aqua; */
     }
-
 </style>
 
