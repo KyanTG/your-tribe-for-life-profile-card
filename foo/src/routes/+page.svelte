@@ -6,13 +6,16 @@
 </script>
 
 <section class="outlay">
-    <section class="mycard">
+    <section class="mycard-front mycard-style">
         <div>
            <img src="{ members?.avatar}" alt="kyan gijtenbeek">
         </div>    
         <h1>{ members?.name }</h1>
-        <p>{ members?.bio }</p>
-        <a href="{ members?.website }">dwd</a>
+        <a href="{ members?.website }">Portfolio</a>
+    </section>
+
+    <section class="mycard-back mycard-style">
+        <p>{ members?.bio}</p>
     </section>
 </section>
 
@@ -31,7 +34,7 @@
         font-family: 'CustomFont', sans-serif;
     }
 
-    .mycard {
+    .mycard-style {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -57,6 +60,7 @@
         height: 14.35em;
         border-radius: 76px 38px 76px 38px;
         background-color: #7376B4;
+        margin-top: 48px;
     }
 
     h1 {
@@ -65,18 +69,21 @@
         color: white;
     }
 
-    p {
-        text-align: center;
-        color: white;
-        font-size: 16px;
-    }
-
     a {
+        font-size: 20px;
         text-decoration: none;
         color: white;
-        border: 2px solid white;
-        border-radius: 15px 7.5px 15px 7.5px;
-        padding: 0.3rem;
+        /* border: 2px solid white;
+        border-radius: 25px 12.5px 25px 12.5px; */
+        padding: 0.5rem;
+    }
+
+    p {
+        color: white;
+    }
+
+    a:hover {
+        scale: 1.1;
     }
 </style>
 
