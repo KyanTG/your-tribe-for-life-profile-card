@@ -6,6 +6,9 @@
 </script>
 
 <section class="outlay">
+    
+    <h2>scroll!</h2>
+
     <section class="mycard-front mycard-style">
         <div>
            <img src="{ members?.avatar}" alt="kyan gijtenbeek">
@@ -29,8 +32,9 @@
     .outlay {
         display: flex;
         align-items: center;
-        justify-content: center;
-        height: 100vh;
+        justify-content: flex-start;
+        flex-direction: column;
+        height: 200vh;
         font-family: 'CustomFont', sans-serif;
     }
 
@@ -42,8 +46,12 @@
         width: 18.75em;
         height: 28em;
         border: 7.5px solid #7376B4;
-        border-radius:  120px 60px 120px 60px;
+        border-radius: 120px 60px 120px 60px;
         background-color: #1E2152;
+    }
+
+    .mycard-back {
+        display: none;
     }
 
     img {
