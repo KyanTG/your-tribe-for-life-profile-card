@@ -1,10 +1,8 @@
 <script>
     let { data } = $props();
     const members = data.members;
-    import { Logo } from '$lib';   
 </script>
 
-<Logo></Logo>
 
 <section class="outlay">
     <article class="mycard-front mycard-style">
