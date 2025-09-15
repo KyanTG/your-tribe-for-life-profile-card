@@ -58,54 +58,55 @@
         }
     }
 
-    /* @supports (animation-timeline: scroll) { */
+@supports (animation-timeline: scroll(block nearest)) {
 
-.mycard-front {
-    animation-name: rotateAnimation;
-    animation-duration: 1ms; /* Firefox requires this to apply the animation */
-    animation-direction: alternate;
-    animation-timeline: scroll(block nearest);
-}
-
-@keyframes rotateAnimation {
-    0% {
-        transform: rotate(0deg);
-        opacity: 100%;
+    .mycard-front {
+        animation-name: rotateAnimation;
+        animation-duration: 1ms; /* Firefox requires this to apply the animation */
+        animation-direction: alternate;
+        animation-timeline: scroll(block nearest);
     }
 
-    80% {
-        opacity: 0%;
+    @keyframes rotateAnimation {
+        0% {
+            transform: rotate(0deg);
+            opacity: 100%;
+        }
+
+        80% {
+            opacity: 0%;
+        }
+
+        100% {
+            transform: rotate(360deg);
+            opacity: 0%;
+
+        }
     }
 
-    100% {
-        transform: rotate(360deg);
-        opacity: 0%;
+    .mycard-back {
+
+        animation-name: rotateBackAnimation;
+        animation-duration: 1ms; /* Firefox requires this to apply the animation */
+        animation-direction: alternate;
+        animation-timeline: scroll(block nearest);
+        margin-top: 200px ;
+        position: absolute;
 
     }
-}
 
-.mycard-back {
+    @keyframes rotateBackAnimation {
+        0% {
+            transform: rotate(0deg);
+            opacity: 0%;
+        }
 
-    animation-name: rotateBackAnimation;
-    animation-duration: 1ms; /* Firefox requires this to apply the animation */
-    animation-direction: alternate;
-    animation-timeline: scroll(block nearest);
-    margin-top: 200px ;
-    position: absolute;
-
-}
-
-@keyframes rotateBackAnimation {
-    0% {
-        transform: rotate(0deg);
-        opacity: 0%;
-    }
-
-    80% {
-        opacity: 100%;
-    }
-    100% {
-        transform: rotate(360deg);
+        80% {
+            opacity: 100%;
+        }
+        100% {
+            transform: rotate(360deg);
+        }
     }
 }
 
