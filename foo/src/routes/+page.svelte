@@ -9,17 +9,17 @@
     
     <!-- <h2>scroll!</h2> -->
 
-    <section class="mycard-front mycard-style">
+    <article class="mycard-front mycard-style">
         <div>
            <img src="{ members?.avatar}" alt="kyan gijtenbeek">
         </div>    
         <h1>{ members?.name }</h1>
         <a href="{ members?.website }">Portfolio</a>
-    </section>
+    </article>
 
-    <section class="mycard-back mycard-style">
+    <article class="mycard-back mycard-style">
         <p>{ members?.bio}</p>
-    </section>
+    </article>
 </section>
 
 
@@ -32,7 +32,7 @@
     .outlay {
         display: flex;
         align-items: center;
-        justify-content: center;
+        /* justify-content: center; */
         flex-direction: column;
         font-family: 'CustomFont', sans-serif;
         height: 200vh;
@@ -40,15 +40,18 @@
 
     .mycard-style {
         display: flex;
-        justify-content: center;
         align-items: center;
+        justify-content: center;
         flex-direction: column;
-        position: relative;
+        position: sticky;
+        transform-style: preserve-3d;
+        top: 5em;
         width: 18.75em;
         height: 28em;
         border: 7.5px solid #7376B4;
         border-radius: 120px 60px 120px 60px;
         background-color: #1E2152;
+
 
         @media (min-width: 834px) {
             width: 28.125em;
@@ -65,48 +68,15 @@
         animation-duration: 1ms; /* Firefox requires this to apply the animation */
         animation-direction: alternate;
         animation-timeline: scroll(block nearest);
+
     }
 
-    @keyframes rotateAnimation {
-        0% {
-            transform: rotate(0deg);
-            opacity: 100%;
-        }
-
-        80% {
-            opacity: 0%;
-        }
-
-        100% {
-            transform: rotate(360deg);
-            opacity: 0%;
-
-        }
-    }
 
     .mycard-back {
-
         animation-name: rotateBackAnimation;
         animation-duration: 1ms; /* Firefox requires this to apply the animation */
         animation-direction: alternate;
         animation-timeline: scroll(block nearest);
-        margin-top: 200px ;
-        position: absolute;
-
-    }
-
-    @keyframes rotateBackAnimation {
-        0% {
-            transform: rotate(0deg);
-            opacity: 0%;
-        }
-
-        80% {
-            opacity: 100%;
-        }
-        100% {
-            transform: rotate(360deg);
-        }
     }
 }
 
@@ -154,8 +124,6 @@
         font-size: 20px;
         text-decoration: none;
         color: white;
-        /* border: 2px solid white;
-        border-radius: 25px 12.5px 25px 12.5px; */
         transition: scale 0.2s ease-out;
 
         @media (min-width: 834px) {
@@ -172,8 +140,41 @@
         }
     }
 
+    /* Animations  */
+
     a:hover {
         scale: 1.1;
+    }
+
+    @keyframes rotateBackAnimation {
+        0% {
+            transform: rotateX(0deg);
+            opacity: 0%;
+        }
+
+        80% {
+            opacity: 100%;
+        }
+        100% {
+            transform: rotateY(360deg);
+        }
+    }
+
+    @keyframes rotateAnimation {
+        0% {
+            transform: rotateX(0deg);
+            opacity: 100%;
+        }
+
+        80% {
+            opacity: 0%;
+        }
+
+        100% {
+            transform: rotateY(360deg);
+            opacity: 0%;
+
+        }
     }
 </style>
 
