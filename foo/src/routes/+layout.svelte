@@ -1,6 +1,5 @@
 <script>
 	import favicon from '$lib/assets/favicon.svg';
-
 	let { children } = $props();
 </script>
 
@@ -11,7 +10,6 @@
 <nav>
 	<a href="/">home</a>
 	<a href="/test">test</a>
-	<a href="/about">about</a>
 </nav>
 
 {@render children?.()}

@@ -1,14 +1,12 @@
 <script>
     let { data } = $props();
-
-    const members = data.members   
-
+    const members = data.members;
+    import { Logo } from '$lib';   
 </script>
 
-<section class="outlay">
-    
-    <!-- <h2>scroll!</h2> -->
+<Logo></Logo>
 
+<section class="outlay">
     <article class="mycard-front mycard-style">
         <div>
            <img src="{ members?.avatar}" alt="kyan gijtenbeek">
@@ -65,15 +63,14 @@
 
     .mycard-front {
         animation-name: rotateAnimation;
-        animation-duration: 1ms; /* Firefox requires this to apply the animation */
-        animation-direction: alternate;
-        animation-timeline: scroll(block nearest);
-
     }
 
 
     .mycard-back {
         animation-name: rotateBackAnimation;
+    }
+
+    .mycard-style {
         animation-duration: 1ms; /* Firefox requires this to apply the animation */
         animation-direction: alternate;
         animation-timeline: scroll(block nearest);
