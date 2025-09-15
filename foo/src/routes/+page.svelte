@@ -34,8 +34,8 @@
         align-items: center;
         justify-content: flex;
         flex-direction: column;
-        height: 200vh;
         font-family: 'CustomFont', sans-serif;
+        height: 120vh;
     }
 
     .mycard-style {
@@ -43,6 +43,7 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        position: relative;
         width: 18.75em;
         height: 28em;
         border: 7.5px solid #7376B4;
@@ -57,9 +58,57 @@
         }
     }
 
-    .mycard-back {
-        display: none;
+    /* @supports (animation-timeline: scroll) { */
+
+.mycard-front {
+    animation-name: rotateAnimation;
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-direction: alternate;
+    animation-timeline: scroll(block nearest);
+}
+
+@keyframes rotateAnimation {
+    0% {
+        transform: rotate(0deg);
+        opacity: 100%;
     }
+
+    80% {
+        opacity: 0%;
+    }
+
+    100% {
+        transform: rotate(180deg);
+        opacity: 0%;
+
+    }
+}
+
+.mycard-back {
+
+    animation-name: rotateBackAnimation;
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-direction: alternate;
+    animation-timeline: scroll(block nearest);
+    margin-top: 200px ;
+    position: absolute;
+
+}
+
+@keyframes rotateBackAnimation {
+    0% {
+        transform: rotate(180deg);
+        opacity: 0%;
+    }
+
+    80% {
+        opacity: 100%;
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
 
     img {
         width: 9.531em;
@@ -94,6 +143,10 @@
         font-size: 24px;
         letter-spacing: 2px;
         color: white;
+
+        @media (min-width: 834px) {
+            font-size: 36px;
+        }
     }
 
     a {
@@ -102,11 +155,20 @@
         color: white;
         /* border: 2px solid white;
         border-radius: 25px 12.5px 25px 12.5px; */
-        padding: 0.5rem;
+        transition: scale 0.2s ease-out;
+
+        @media (min-width: 834px) {
+            font-size: 30px;
+        }
     }
 
     p {
+        font-size: 20px;
         color: white;
+
+        @media (min-width: 834px) {
+            font-size: 30px;
+        }
     }
 
     a:hover {
