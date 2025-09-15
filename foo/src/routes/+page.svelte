@@ -7,7 +7,7 @@
 
 <section class="outlay">
     
-    <h2>scroll!</h2>
+    <!-- <h2>scroll!</h2> -->
 
     <section class="mycard-front mycard-style">
         <div>
@@ -32,10 +32,10 @@
     .outlay {
         display: flex;
         align-items: center;
-        justify-content: flex;
+        justify-content: center;
         flex-direction: column;
         font-family: 'CustomFont', sans-serif;
-        height: 120vh;
+        height: 200vh;
     }
 
     .mycard-style {
@@ -78,7 +78,7 @@
     }
 
     100% {
-        transform: rotate(180deg);
+        transform: rotate(360deg);
         opacity: 0%;
 
     }
@@ -97,7 +97,7 @@
 
 @keyframes rotateBackAnimation {
     0% {
-        transform: rotate(180deg);
+        transform: rotate(0deg);
         opacity: 0%;
     }
 
@@ -105,7 +105,7 @@
         opacity: 100%;
     }
     100% {
-        transform: rotate(0deg);
+        transform: rotate(360deg);
     }
 }
 
