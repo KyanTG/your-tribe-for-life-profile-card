@@ -143,7 +143,7 @@
 
     @keyframes rotateBackAnimation {
         0% {
-            transform: rotateX(0deg);
+            transform: rotateY(0deg);
             opacity: 0%;
         }
 
@@ -151,13 +151,13 @@
             opacity: 100%;
         }
         100% {
-            transform: rotateY(360deg);
+            transform: rotateY(90deg);
         }
     }
 
     @keyframes rotateAnimation {
         0% {
-            transform: rotateX(0deg);
+            transform: rotateY(0deg);
             opacity: 100%;
         }
 
@@ -166,7 +166,7 @@
         }
 
         100% {
-            transform: rotateY(360deg);
+            transform: rotateY(90deg);
             opacity: 0%;
 
         }
