@@ -17,6 +17,11 @@
 
     <article class="mycard-back mycard-style">
         <p>{ members?.bio}</p>
+        <p>HTML, CSS, JavaScript, Figma, JSON, API's and SvelteKit</p>
+        <div class="link-wrapper">
+            <a href="https://www.linkedin.com/in/kyan-gijtenbeek-7063791a7/">Linkedin</a>
+            <a href="https://github.com/KyanTG">Github</a>
+        </div>
     </article>
 </section>
 
@@ -151,8 +156,8 @@
 
     a {
         font-size: 20px;
-        text-decoration: none;
         color: white;
+        text-underline-offset: 0.25rem;
         transition: scale 0.2s ease-out;
 
         @media (min-width: 834px) {
@@ -161,12 +166,19 @@
     }
 
     p {
+        padding: 2em;
         font-size: 20px;
         color: white;
 
         @media (min-width: 834px) {
             font-size: 30px;
         }
+    }
+
+    .link-wrapper {
+        display: flex;
+        gap: 3em;
+        padding: 2em;
     }
 
     /* Animations  */
