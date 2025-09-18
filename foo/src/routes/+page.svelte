@@ -78,12 +78,20 @@
     .mycard-style {
         grid-area: 1/1;
         position: sticky;
-        top: 3em;
+        top: 20%;
         transform-style: preserve-3d;
         transform-origin: center;
         animation-name: flip;
         animation-duration: 1ms; 
         animation-timeline: scroll(block nearest);
+
+        @media (min-width: 834px) {
+            top: 8%;
+        }
+
+        @media (min-width: 1024px) {
+            top: 6%;
+        }
     }
 
      .front-wrapper {
