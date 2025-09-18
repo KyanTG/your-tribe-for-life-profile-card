@@ -6,11 +6,13 @@
 
 <section class="outlay">
     <article class="mycard-front mycard-style">
-        <div>
-           <img src="{ members?.avatar}" alt="kyan gijtenbeek">
-        </div>    
-        <h1>{ members?.name }</h1>
-        <a href="{ members?.website }">Portfolio</a>
+        <div class="front-wrapper">
+            <div class="img-wrapper">
+              <img src="{ members?.avatar}" alt="kyan gijtenbeek">
+            </div>    
+            <h1>{ members?.name }</h1>
+            <a href="{ members?.website }">Portfolio</a>
+        </div>
     </article>
 
     <article class="mycard-back mycard-style">
@@ -32,6 +34,8 @@
         flex-direction: column;
         font-family: 'CustomFont', sans-serif;
         height: 200vh;
+        gap: 10em;
+        padding-top: 2em;
     }
 
     .mycard-style {
@@ -39,9 +43,6 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        position: sticky;
-        transform-style: preserve-3d;
-        top: 5em;
         width: 18.75em;
         height: 28em;
         border: 7.5px solid #7376B4;
@@ -57,51 +58,76 @@
         }
     }
 
-@supports (animation-timeline: scroll(block nearest)) {
-
-    .mycard-front {
-        animation-name: rotateAnimation;
+    .front-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
+@supports (animation-timeline: scroll(block nearest)) {
 
-    .mycard-back {
-        animation-name: rotateBackAnimation;
+    .outlay {
+        display: grid;
+        place-items: start center;
+        position: relative;
+        perspective: 1000px;
+        height: 200vh;
     }
 
     .mycard-style {
-        animation-duration: 1ms; /* Firefox requires this to apply the animation */
-        animation-direction: alternate;
+        grid-area: 1/1;
+        position: sticky;
+        top: 3em;
+        transform-style: preserve-3d;
+        transform-origin: center;
+        animation-name: flip;
+        animation-duration: 1ms; 
         animation-timeline: scroll(block nearest);
     }
+
+     .front-wrapper {
+        transform: rotateY(180deg);
+    }
+
+    .mycard-back { 
+        backface-visibility: hidden;
+        transform: rotateY(180deg);
+    } 
+
+    @keyframes flip {
+        from { transform: rotateY(180deg); }
+        to   { transform: rotateY(0deg); }
+     }
 }
 
 
     img {
         width: 9.531em;
         height: 9.531em;
-        border-radius: 76px 38px 76px 38px;
+        border-radius: 38px 76px 38px 76px;
 
         @media (min-width: 834px) {
             width: 14.25em;
             height: 14.25em;
-            border-radius: 120px 55.5px 120px 55.5px;
+            border-radius: 55.5px 120px 55.5px 120px;
         }
     }
 
-    div {
+    .img-wrapper {
         display: flex;
         align-items: flex-end;
         justify-content: center;
         width: 9.531em; 
         height: 14.35em;
-        border-radius: 76px 38px 76px 38px;
+        border-radius: 38px 76px 38px 76px;
         background-color: #7376B4;
         margin-top: 48px;
 
         @media (min-width: 834px) {
             width: 14.25em;
             height: 21.524em;
-            border-radius: 120px 55.5px 120px 55.5px;
+            border-radius: 55.5px 120px 55.5px 120px;
         }
     }
 
@@ -141,35 +167,5 @@
         scale: 1.1;
     }
 
-    @keyframes rotateBackAnimation {
-        0% {
-            transform: rotateY(0deg);
-            opacity: 0%;
-        }
-
-        80% {
-            opacity: 100%;
-        }
-        100% {
-            transform: rotateY(90deg);
-        }
-    }
-
-    @keyframes rotateAnimation {
-        0% {
-            transform: rotateY(0deg);
-            opacity: 100%;
-        }
-
-        80% {
-            opacity: 0%;
-        }
-
-        100% {
-            transform: rotateY(90deg);
-            opacity: 0%;
-
-        }
-    }
 </style>
 
